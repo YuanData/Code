@@ -72,3 +72,59 @@ func main() {
     SendMessage(imageMsg)
 }
 ```
+---
+
+## Error介面
+- Error是Go語言中的內建介面，定義於builtin包中。
+- builtin包含多個內嵌函式，其函式和變量名不以大寫字母開頭。
+
+## 宣告和使用Error
+- Error的默認值是nil。
+- 可以使用`errors.New`函式從字符串創建Error。
+- `fmt.Errorf`函式提供格式化字符串來創建Error。
+
+## 示例：創建和使用Error
+```go
+package main
+
+import (
+	"errors"
+	"fmt"
+)
+
+func main() {
+	// 使用errors包創建Error
+	error1 := errors.New("錯誤1")
+
+	// 使用fmt包創建格式化的Error
+	error2 := fmt.Errorf("錯誤2 %s", "故障")
+
+	fmt.Println(error1)
+	fmt.Println(error2)
+}
+```
+
+## Panic和Recover
+- `panic`用於拋出異常或恐慌狀態。
+- 當函式中出現panic時，其後的代碼將不會執行。
+- 使用`defer`和`recover`組合可以捕捉並處理panic，防止程序崩潰。
+
+## 示例：Panic和Recover的使用
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println("捕捉到了錯誤:", err)
+		}
+	}()
+
+	panic("發生了panic")
+	fmt.Println("這裡不會被執行")
+}
+```

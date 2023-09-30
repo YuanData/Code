@@ -5,7 +5,7 @@ slug: "class-14"
 series: ["Go基礎入門"]
 series_order: 14
 ---
-本節課介紹Goroutine是Go實現高效並發的輕量級執行緒。
+本節課介紹Goroutine是 Go 實現高效並發的輕量級執行緒。
 
 ## Goroutine的基本概念
 - Goroutine是Go語言中實現輕量級並發的關鍵機制。
