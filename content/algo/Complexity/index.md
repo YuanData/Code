@@ -19,7 +19,7 @@ series_order: 1
 ### 複雜度計算規則
 在計算複雜度時，應忽略常數因子，聚焦於較高的複雜度表達式。複雜度分為時間複雜度和空間複雜度，前者與程序結構設計緊密相關，後者則與數據結構選擇有關。
 
-## Go 實例
+### Go 實例
 
 1. **順序結構（O(1) 複雜度）**:
    ```go
@@ -72,6 +72,34 @@ series_order: 1
        return matrix
    }
    ```
+
+## 時間成本較記憶體成本昂貴
+程序效能的瓶頸可能發生在時間或空間兩個方面。空間複雜度較容易通過硬體解決，而時間複雜度則更為關鍵，因為它直接影響程序的運行效率和用戶體驗。
+
+優化程序主要包括三個步驟：
+    1. 窮舉解法
+    2. 無效操作處理
+    3. 複雜度抵換。
+窮舉解法是找出基本解決方案；無效操作處理則涉及剔除無效計算和存儲，降低複雜度；複雜度抵換則是利用數據結構將時間複雜度轉為空間複雜度，從而提高效率。
+
+### 降低複雜度的案例
+這個範例展示了如何找出一個陣列中出現次數最多的元素。我們將使用 Go 語言的字典結構來實現這個邏輯，這樣可以將時間複雜度從 O(n²) 降低至 O(n)。
+```go
+    func findMostFrequentElement(elements []int) int {
+        frequencyMap := make(map[int]int)
+        maxCount := 0
+        maxElement := -1
+
+        for _, element := range elements {
+            frequencyMap[element]++
+            if frequencyMap[element] > maxCount {
+                maxCount = frequencyMap[element]
+                maxElement = element
+            }
+        }
+        return maxElement
+    }
+```
 
 ## 小結
 本節提供了對複雜度的深入解析，強調了其在評估程序效能中的重要性。通過掌握時間與空間複雜度的計算及其與程序結構的關聯，可以有效地優化程序，提升效能。
