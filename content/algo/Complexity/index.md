@@ -1,5 +1,5 @@
 ---
-title: "效能評估：複雜度"
+title: "複雜度"
 draft: false
 slug: "class-01"
 series: ["演算法與解題"]
