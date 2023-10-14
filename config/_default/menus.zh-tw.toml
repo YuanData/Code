@@ -24,6 +24,6 @@
   identifier = "github"
   pre = "github"
   url = "https://github.com/YuanData"
-  weight = 20
+  weight = 30
 
 
