@@ -4,7 +4,7 @@ draft: false
 slug: "class-04"
 series: ["演算法與解題"]
 series_order: 4
-date: "2095-07-07"
+date: "2195-07-07"
 ---
 04：本節課介紹佇列的基本概念及其在數據處理中的應用。
 

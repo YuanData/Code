@@ -4,7 +4,7 @@ draft: false
 slug: "class-08"
 series: ["演算法與解題"]
 series_order: 8
-date: "2091-07-07"
+date: "2191-07-07"
 ---
 08：本節課深入探討分治法的原理及應用，特別是在數據查找問題中的實踐。
 

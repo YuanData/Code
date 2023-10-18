@@ -4,7 +4,7 @@ draft: false
 slug: "class-02"
 series: ["演算法與解題"]
 series_order: 2
-date: "2097-07-07"
+date: "2197-07-07"
 ---
 02：本節課著重介紹線性表的結構和特點。
 

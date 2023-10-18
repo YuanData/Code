@@ -4,8 +4,9 @@ draft: false
 slug: "class-05"
 series: ["Go基礎入門"]
 series_order: 5
+date: "2094-07-07"
 ---
-本節課是 Go 運算符和格式化字串(Format Verbs)的基本介紹。
+05：本節課是 Go 運算符和格式化字串(Format Verbs)的基本介紹。
 
 # 運算符
 

@@ -4,8 +4,9 @@ draft: false
 slug: "class-09"
 series: ["Go基礎入門"]
 series_order: 9
+date: "2090-07-07"
 ---
-本節課是對 Go 控制流程的簡要介紹。
+09：本節課是對 Go 控制流程的簡要介紹。
 
 # `if...else` 結構
 

@@ -4,7 +4,7 @@ draft: false
 slug: "class-01"
 series: ["演算法與解題"]
 series_order: 1
-date: "2098-07-07"
+date: "2198-07-07"
 ---
 01：本節課說明如何透過複雜度衡量程序的運行效率。
 

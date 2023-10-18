@@ -4,7 +4,7 @@ draft: false
 slug: "class-11"
 series: ["演算法與解題"]
 series_order: 11
-date: "2088-07-07"
+date: "2188-07-07"
 ---
 11：本節課介紹動態規劃與其解決具有最優子結構的複雜問題。
 

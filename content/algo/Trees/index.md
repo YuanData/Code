@@ -4,7 +4,7 @@ draft: false
 slug: "class-06"
 series: ["演算法與解題"]
 series_order: 6
-date: "2093-07-07"
+date: "2193-07-07"
 ---
 06：本節課專注於樹和二元樹的結構及其在數據處理中的應用。
 

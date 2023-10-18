@@ -4,8 +4,9 @@ draft: false
 slug: "class-06"
 series: ["Go基礎入門"]
 series_order: 6
+date: "2093-07-07"
 ---
-本節課是 Go 基本資料類型與指標概念的介紹。
+06：本節課是 Go 基本資料類型與指標概念的介紹。
 
 # 基本資料型別
 

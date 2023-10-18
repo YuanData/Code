@@ -4,7 +4,7 @@ draft: false
 slug: "class-10"
 series: ["演算法與解題"]
 series_order: 10
-date: "2089-07-07"
+date: "2189-07-07"
 ---
 10：本節課介紹深度優先搜索（DFS）和廣度優先搜索（BFS）。
 

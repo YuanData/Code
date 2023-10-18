@@ -4,8 +4,9 @@ draft: false
 slug: "class-07"
 series: ["Go基礎入門"]
 series_order: 7
+date: "2092-07-07"
 ---
-本節課介紹了 Go 組合型別：陣列、slice和map的操作與遍歷。
+07：本節課介紹了 Go 組合型別：陣列、slice和map的操作與遍歷。
 
 ## 陣列
 

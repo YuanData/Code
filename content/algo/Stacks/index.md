@@ -4,7 +4,7 @@ draft: false
 slug: "class-03"
 series: ["演算法與解題"]
 series_order: 3
-date: "2096-07-07"
+date: "2196-07-07"
 ---
 03：本節課探討堆疊的定義和特點。
 

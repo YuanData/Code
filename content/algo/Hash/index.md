@@ -4,7 +4,7 @@ draft: false
 slug: "class-05"
 series: ["演算法與解題"]
 series_order: 5
-date: "2094-07-07"
+date: "2194-07-07"
 ---
 05：本節課探討雜湊表的原理和它在數據處理中的重要性。
 

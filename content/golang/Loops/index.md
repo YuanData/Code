@@ -4,8 +4,9 @@ draft: false
 slug: "class-10"
 series: ["Go基礎入門"]
 series_order: 10
+date: "2089-07-07"
 ---
-本節課透過實際應用示例 Go 迴圈與遍歷運用。
+10：本節課透過實際應用示例 Go 迴圈與遍歷運用。
 
 # `for`
 
