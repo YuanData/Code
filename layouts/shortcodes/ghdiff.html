@@ -4,7 +4,7 @@
     .d2h-file-name{cursor: pointer; }
     .d2h-file-list-title button {
         appearance: auto; /* 控制元素的默认外观 */
-        color: buttontext; /* 设置文本颜色 */
+color: buttontext; /* 设置文本颜色 */
         cursor: pointer; /* 设置鼠标悬停时的光标样式 */
         box-sizing: border-box; /* 定义渲染元素的盒模型 */
         background-color: buttonface; /* 设置背景颜色 */
@@ -21,10 +21,11 @@
 <script>
     function toggleAll(expand) {
         [].forEach.call(document.querySelectorAll('a.d2h-file-name'), function(a) {
-            if (expand != a.showDiff) showLineByLine(a);
+            if (expand != a.showDiff) toggleDiffDisplay(a);
         });
     }
-    function showLineByLine(a) {
+
+    function toggleDiffDisplay(a) {
         if (a.showDiff) {
             var div = a.parentNode.parentNode.nextElementSibling;
             div.parentNode.removeChild(div);
@@ -33,13 +34,26 @@
         else {
             var div = document.createElement("div");
             div.className = "file-diff";
-            div.innerHTML = Diff2Html.getPrettySideBySideHtmlFromJson(a.diffContent);
+            
+            // 根据 outputFormat 来决定使用哪个函数
+            if (a.outputFormat === 'side-by-side') {
+                div.innerHTML = Diff2Html.getPrettySideBySideHtmlFromJson(a.diffContent, {
+                    inputFormat: 'diff',  matching: 'lines',
+                    outputFormat: 'side-by-side',
+                });
+            } else {
+                div.innerHTML = Diff2Html.getPrettyHtmlFromJson(a.diffContent, {
+                    inputFormat: 'diff', matching: 'lines',
+                    outputFormat: 'line-by-line',
+                });
+            }
+
             a.parentNode.parentNode.parentNode.insertBefore(div, a.parentNode.parentNode.nextSibling);
             a.showDiff = true;
         }
     }
 
-    function loadDiff(commitId) {
+    function loadDiff(outputFormat, commitId) {
         var reportElementId = 'report-' + commitId;
         var url = 'https://api.github.com/repos/YuanData/allegro-trade/commits/' + commitId;
 
@@ -51,12 +65,19 @@
         })
         .then(function(diffText) {
             var diffFiles = Diff2Html.getJsonFromDiff(diffText);
-            var diffHtml = Diff2Html.getPrettyHtmlFromJson(diffFiles, {
-                inputFormat: 'diff',
-                showFiles: true,
-                matching: 'lines',
-                outputFormat: 'line-by-line',
-            });
+            
+            var diffHtml;
+            if (outputFormat === 'side-by-side') {
+                diffHtml = Diff2Html.getPrettySideBySideHtmlFromJson(diffFiles, {
+                    inputFormat: 'diff', showFiles: true, matching: 'lines',
+                    outputFormat: 'side-by-side',
+                });
+            } else {
+                diffHtml = Diff2Html.getPrettyHtmlFromJson(diffFiles, {
+                    inputFormat: 'diff', showFiles: true, matching: 'lines',
+                    outputFormat: 'line-by-line',
+                });
+            }
 
             var startOfWrapper = diffHtml.indexOf('<div class="d2h-wrapper">');
             var endOfWrapper = diffHtml.lastIndexOf('</div>') + 6;
@@ -72,7 +93,8 @@
             [].forEach.call(document.querySelectorAll('a.d2h-file-name'), function(a, i) {
                 a.diffContent = [diffFiles[i]];
                 a.removeAttribute("href");
-                a.onclick = function() { showLineByLine(a); };
+                a.outputFormat = outputFormat;
+                a.onclick = function() { toggleDiffDisplay(a); };
             });
         })
         .catch(function(error) {
@@ -80,5 +102,11 @@
         });
     }
 
-    loadDiff('{{ .Get 0 }}');
+    var outputFormat = '{{ .Get 1 }}' === 'L' ? 'line-by-line' : 'side-by-side';
+    var commitId = '{{ .Get 0 }}';
+
+    // 确保在 DOM 完全加载后调用 loadDiff
+    window.onload = function() {
+        loadDiff(outputFormat, commitId);
+    };
 </script>
