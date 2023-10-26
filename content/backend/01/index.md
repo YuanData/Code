@@ -56,4 +56,4 @@ date: "2298-07-07"
 
 ---
 ## 課程檔案記錄
-{{< ghdiff "c53f4543b2dcbfc5c476df2e6a2b53f016a54228" "L">}}
+{{< ghdiff "c53f4543b2dcbfc5c476df2e6a2b53f016a54228" "L" ".gitignore" >}}

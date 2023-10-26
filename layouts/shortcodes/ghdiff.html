@@ -53,7 +53,7 @@ color: buttontext; /* 设置文本颜色 */
         }
     }
 
-    function loadDiff(outputFormat, commitId) {
+    function loadDiff(outputFormat, commitId, ignoreFiles) {
         var reportElementId = 'report-' + commitId;
         var url = 'https://api.github.com/repos/YuanData/allegro-trade/commits/' + commitId;
 
@@ -65,19 +65,20 @@ color: buttontext; /* 设置文本颜色 */
         })
         .then(function(diffText) {
             var diffFiles = Diff2Html.getJsonFromDiff(diffText);
+
+            diffFiles = diffFiles.filter(function(file) {
+                return !ignoreFiles.includes(file.newName);
+            });
             
-            var diffHtml;
-            if (outputFormat === 'side-by-side') {
-                diffHtml = Diff2Html.getPrettySideBySideHtmlFromJson(diffFiles, {
+            var diffHtml = outputFormat === 'side-by-side' ?
+                Diff2Html.getPrettySideBySideHtmlFromJson(diffFiles, {
                     inputFormat: 'diff', showFiles: true, matching: 'lines',
                     outputFormat: 'side-by-side',
-                });
-            } else {
-                diffHtml = Diff2Html.getPrettyHtmlFromJson(diffFiles, {
+                }) :
+                Diff2Html.getPrettyHtmlFromJson(diffFiles, {
                     inputFormat: 'diff', showFiles: true, matching: 'lines',
                     outputFormat: 'line-by-line',
                 });
-            }
 
             var startOfWrapper = diffHtml.indexOf('<div class="d2h-wrapper">');
             var endOfWrapper = diffHtml.lastIndexOf('</div>') + 6;
@@ -102,11 +103,11 @@ color: buttontext; /* 设置文本颜色 */
         });
     }
 
+    window.onload = function() {
     var outputFormat = '{{ .Get 1 }}' === 'L' ? 'line-by-line' : 'side-by-side';
     var commitId = '{{ .Get 0 }}';
-
-    // 确保在 DOM 完全加载后调用 loadDiff
-    window.onload = function() {
-        loadDiff(outputFormat, commitId);
-    };
+    var ignoreFilesRaw = '{{ .Get 2 }}';
+    var ignoreFiles = ignoreFilesRaw ? ignoreFilesRaw.split(',') : [];
+    loadDiff(outputFormat, commitId, ignoreFiles);
+};
 </script>
