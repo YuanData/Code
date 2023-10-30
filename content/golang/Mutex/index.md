@@ -6,7 +6,7 @@ series: ["Go基礎入門"]
 series_order: 16
 date: "2083-07-07"
 ---
-16：本節課說明 Go 的sync套件提供並發編程中的同步機制與資源管理工具。
+16: 本節課說明 Go 的sync套件提供並發編程中的同步機制與資源管理工具。
 
 ## Mutex（互斥鎖）
 - `sync.Mutex` 用於在多個Goroutine之間提供互斥訪問。

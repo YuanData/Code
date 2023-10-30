@@ -6,7 +6,7 @@ series: ["Go基礎入門"]
 series_order: 11
 date: "2088-07-07"
 ---
-11：本節課說明 Go 函式、可變參數和匿名函式；與用defer延遲執行和recover錯誤處理。
+11: 本節課說明 Go 函式、可變參數和匿名函式；與用defer延遲執行和recover錯誤處理。
 
 # `func` 函式
 

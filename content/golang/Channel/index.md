@@ -6,7 +6,7 @@ series: ["Go基礎入門"]
 series_order: 15
 date: "2084-07-07"
 ---
-15：本節課說明channel，是 Go 並行處理的核心元素。
+15: 本節課說明channel，是 Go 並行處理的核心元素。
 
 ## 什麼是Channel
 - Channel是Go語言中一種特殊的數據類型，用於在Goroutines之間傳遞數據。

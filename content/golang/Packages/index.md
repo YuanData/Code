@@ -6,7 +6,7 @@ series: ["Go基礎入門"]
 series_order: 3
 date: "2096-07-07"
 ---
-03：本節課說明 Go 的套件（Package）管理基礎以及init函式的特性。
+03: 本節課說明 Go 的套件（Package）管理基礎以及init函式的特性。
 
 ## 套件（Package）的基本概念
 - **套件的作用**：Go 程式由套件組成，主程式從 `main` 套件開始運行。
