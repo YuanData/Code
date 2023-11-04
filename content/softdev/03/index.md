@@ -2,7 +2,7 @@
 title: "建立單元測試"
 draft: false
 slug: "class-03"
-series: ["後端實務"]
+series: ["軟體開發實務"]
 series_order: 3
 date: "2296-07-07"
 ---

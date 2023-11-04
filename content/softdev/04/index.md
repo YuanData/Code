@@ -2,7 +2,7 @@
 title: "實作 RESTful API"
 draft: false
 slug: "class-04"
-series: ["後端實務"]
+series: ["軟體開發實務"]
 series_order: 4
 date: "2295-07-07"
 ---

@@ -2,7 +2,7 @@
 title: "資料庫設計入門"
 draft: false
 slug: "class-01"
-series: ["後端實務"]
+series: ["軟體開發實務"]
 series_order: 1
 date: "2298-07-07"
 ---

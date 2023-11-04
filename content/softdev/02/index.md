@@ -2,7 +2,7 @@
 title: "實現 CRUD 操作"
 draft: false
 slug: "class-02"
-series: ["後端實務"]
+series: ["軟體開發實務"]
 series_order: 2
 date: "2297-07-07"
 ---
